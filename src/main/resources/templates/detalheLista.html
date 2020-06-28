@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<head>
+<meta charset="UTF-8">
+<title>Detalhe do Futebol</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="/formLista">Cadastrar Novo Futebol</a> <a
+			class="navbar-brand" href="/lista">Listas dos Futebol</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>
+
+	<br>
+
+
+	<div class="container">
+		<div th:each="lista : ${lista}">
+			<p class="font-weight-bold">
+				Nome do Futebol:  <span th:text="${lista.nome}"></span>,
+		
+			Local: <span th:text="${lista.Local}"></span>,
+			
+				Data: <span th:text="${lista.data}"></span>,
+			
+				Hora: <span th:text="${lista.horario}"></span>.
+			</p>
+		</div>
+
+		<form class="form-horizontal" form method="POST"
+			th:object="${jogadores}">
+			<div class="form-group">
+				<label for="exampleInputName2">Nome do jogador: </label> <input
+					type="text" class="form-control" name="nomeJogador"
+					placeholder="Exemplo: Arthur">
+
+			</div>
+
+			<div class="form-horizontal">
+				<label for="identidade">Identidade do Jogador: </label> <input
+					type="text" class="form-control" name="identidade"
+					placeholder="Exemplo: 111.111.111-11">
+
+			</div>
+			<div class="form-horizontal">
+				<label for="identidade">Posição do Jogador: </label> <input
+					type="text" class="form-control" name="posicao"
+					placeholder="Exemplo: Goleiro">
+
+			</div>
+			
+				<div class="form-horizontal">
+				<label for="email">Email </label> <input
+					type="email" class="form-control" name="email"
+					placeholder="Email">
+
+			</div>
+			<br>
+		<button type="submit" class="btn btn-success">Cadastrar Jogador</button>
+		</form>
+		
+
+		</container>
+
+
+<br>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Jogador</th>
+					<th>Identidade</th>
+					<th>Posição</th>
+					<th>Excluir</th>
+
+				</tr>
+
+			</thead>
+
+
+			<tr class="container" th:each="jogador : ${jogadores}">
+				<td><span th:text="${jogador.nomeJogador}"></span></td>
+				<td><span th:text="${jogador.identidade}"></span></td>
+				<td><span th:text="${jogador.posicao}"></span>
+				<td><a
+					th:href="${(#mvc.url('LC#deletarJogador').arg(0, jogador.identidade)).build()}"><svg
+							width="1em" height="1em" viewBox="0 0 16 16"
+							class="bi bi-trash-fill" fill="currentColor"
+							xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+								d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
+</svg></a>
+			</tr>
+			<tbody>
+			</tbody>
+		</table>
+</body>
+</html>

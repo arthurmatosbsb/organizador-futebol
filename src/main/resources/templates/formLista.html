@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+<title>Cadastro Futebol</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Cadastro do Futebol</a> <a
+			class="navbar-brand" href="/lista"> Listas dos futebol</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>
+	<br>
+	<br>
+	<form class="container" method="post">
+		<div class="form-group">
+			<label for="nome">Nome</label> <input type="text"
+				class="form-control" name="nome" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<label for="local">Local</label> <input type="text"
+				class="form-control" name="local" placeholder="Local do futebol">
+		</div>
+		<div class="form-group">
+			<label for="date">Data</label> <input type="date"
+				class="form-control" name="date" placeholder="Data">
+		</div>
+		<div class="form-group">
+			<label for="horario">Horario</label> <input type="time"
+				class="form-control" name="horario" placeholder="horario">
+		</div>
+		<button type="submit" class="btn btn-success">Cadastrar</button>
+	</form>
+</body>
+</html>

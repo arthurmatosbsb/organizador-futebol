@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<head>
+<meta charset="UTF-8">
+<title>Listas dos Futebol</title>
+</head>
+<body>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="/formLista">Cadastrar Novo Futebol</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>
+
+	
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Local</th>
+					<th>Data</th>
+					<th>Horario</th>
+					<th>Excluir</th>
+
+				</tr>
+
+			</thead>
+			<tbody>
+				<tr th:each="lista : ${lista}">
+
+					<td><a
+						th:href="${(#mvc.url('LC#listaDetalhe').arg(0, lista.id).build())}"<span
+							th:text="${lista.nome}"></span></td>
+					<td><span th:text="${lista.local}"></span></td>
+					<td><span th:text="${lista.data}"></span></td>
+					<td><span th:text="${lista.horario}"></span></td>
+					<td><a
+						th:href="${(#mvc.url('LC#deletarLista').arg(0, lista.id)).build()}"><svg
+								width="1em" height="1em" viewBox="0 0 16 16"
+								class="bi bi-trash-fill" fill="currentColor"
+								xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+									d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z" />
+</svg></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
